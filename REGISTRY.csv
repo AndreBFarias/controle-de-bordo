@@ -12,7 +12,6 @@ assets/controle-de-bordo.desktop,config,11,infra,active,,Lançador de aplicaçã
 .claude/settings.json,config,31,infra,active,,Hooks e configuração do ambiente de desenvolvimento
 .claude/hooks/check_registry.sh,script,59,infra,active,,Hook bloqueante: verifica REGISTRY.csv
 .claude/hooks/check_accentuation.sh,script,92,infra,active,,Hook de verificação de acentuação PT-BR
-.claude/hooks/check_accentuation.sh,script,92,infra,active,,Hook de verificação de acentuação PT-BR
 scripts/hooks/remove_coauthor.sh,script,20,infra,active,,Hook commit-msg: remove trailers de co-autoria
 configs/default.toml,config,86,infra,active,,Configuração padrão do sistema
 configs/categories.toml,config,86,dominio,active,,Mapeamento de categorias financeiras por palavras-chave

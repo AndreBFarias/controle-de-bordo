@@ -32,6 +32,7 @@
 ## Dependências
 - Sprint S00 (infra)
 - Sprint S03 (NudgeEngine para disparar alertas)
+- Sprint S04.5 (notificadores ntfy.sh para push mobile)
 
 ## Estimativa
 - Complexidade: Alta

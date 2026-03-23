@@ -30,6 +30,7 @@
 ## Dependências
 - Sprint S00 (infra)
 - Sprint S03 (NudgeEngine)
+- Sprint S03.5 (config_loader para listas de bloqueio via TOML)
 
 ## Estimativa
 - Complexidade: Média

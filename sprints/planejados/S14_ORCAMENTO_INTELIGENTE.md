@@ -30,6 +30,8 @@
 ## Dependências
 - Sprint S03 (Motor Anti-Impulso)
 - Sprint S06 (Bloqueio Desktop)
+- Sprint S07 (Ponte Mobile / Tasker para interceptação)
+- Sprint S10 (IA para análise Necessidade vs. Desejo)
 - Sprint S07 (Ponte Mobile / Tasker)
 
 ## Estimativa
