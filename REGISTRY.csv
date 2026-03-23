@@ -106,3 +106,28 @@ requirements-ci.txt,config,0,infra,active,,Dependências mínimas para CI
 .github/ISSUE_TEMPLATE/bug.yml,config,0,infra,active,,Template de bug report
 .github/ISSUE_TEMPLATE/feature.yml,config,0,infra,active,,Template de feature request
 .github/PULL_REQUEST_TEMPLATE.md,doc,0,infra,active,,Template de Pull Request
+Review.md,doc,312,doc,active,referência;startup-critico,Análise técnica e plano de 20 sprints para integração Luna
+src/bordo/__init__.py,source,3,infra,active,startup-critico,Pacote raiz bordo com versão
+src/bordo/__main__.py,source,22,apresentação,active,,Ponto de entrada python -m bordo
+src/bordo/cli.py,source,3,apresentação,placeholder,,CLI Typer (dependência opcional)
+src/bordo/plugin.py,source,3,integração,placeholder,,Adapter Luna (dependência opcional)
+src/bordo/config.py,source,3,infra,placeholder,,Configuração dual-mode standalone/plugin
+src/bordo/bootstrap.py,source,3,infra,placeholder,,Composition roots para injeção de dependências
+src/bordo/domain/__init__.py,source,1,domínio,active,,Pacote domínio bordo
+src/bordo/domain/entities.py,source,3,domínio,placeholder,,Entidades Pydantic (Transaction Goal Habit etc)
+src/bordo/domain/events.py,source,3,domínio,placeholder,,Eventos tipados BaseModel
+src/bordo/domain/services.py,source,3,domínio,placeholder,,Serviços de domínio (FinancialEngine GoalTracker etc)
+src/bordo/domain/ports.py,source,3,domínio,placeholder,,Protocols IStorage INotifier IEventBus etc
+src/bordo/adapters/__init__.py,source,1,infra,active,,Pacote adaptadores bordo
+src/bordo/adapters/sqlite_store.py,source,3,infra,placeholder,,Adaptador SQLite com WAL
+src/bordo/adapters/json_store.py,source,3,infra,placeholder,,Adaptador JSON compatível com life_manager
+src/bordo/adapters/luna_bridge.py,source,3,integração,placeholder,,EventBusBridge bidirecional Luna
+src/bordo/adapters/nubank_csv.py,source,3,infra,placeholder,,Importador CSV Nubank
+src/bordo/adapters/ofx_parser.py,source,3,infra,placeholder,,Importador OFX genérico
+src/bordo/adapters/flet_ui/__init__.py,source,1,apresentação,placeholder,,Pacote interface Flet
+src/bordo/migrations/__init__.py,source,1,infra,active,,Pacote migrações
+src/bordo/migrations/json_to_sqlite.py,source,3,infra,placeholder,,Migração faseada JSON para SQLite
+tests/test_domain/__init__.py,source,0,teste,active,,Pacote testes de domínio
+tests/test_adapters/__init__.py,source,0,teste,active,,Pacote testes de adaptadores
+tests/test_bridge/__init__.py,source,0,teste,active,,Pacote testes de bridge Luna
+tests/test_migration/__init__.py,source,0,teste,active,,Pacote testes de migração
