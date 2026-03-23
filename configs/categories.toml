@@ -1,0 +1,86 @@
+# Mapeamento de palavras-chave para categorias financeiras
+# Adicione palavras específicas dos seus gastos
+
+[alimentação]
+keywords = [
+    "ifood", "rappi", "uber eats", "restaurante", "lanchonete",
+    "padaria", "supermercado", "mercado", "hortifruti", "açougue",
+    "feira", "pizzaria", "sushi", "mcdonald", "burger king",
+    "subway", "starbucks", "cafeteria",
+]
+
+[transporte]
+keywords = [
+    "uber", "99", "cabify", "combustível", "gasolina",
+    "estacionamento", "pedágio", "metro", "ônibus", "ipva",
+    "seguro auto", "oficina", "mecânico", "lavagem",
+]
+
+[moradia]
+keywords = [
+    "aluguel", "condomínio", "iptu", "energia", "água",
+    "gás", "internet", "telefone", "manutenção", "reforma",
+]
+
+[saúde]
+keywords = [
+    "farmácia", "drogaria", "consulta", "plano de saúde",
+    "academia", "dentista", "hospital", "laboratório",
+    "psicólogo", "fisioterapia", "oftalmologista",
+]
+
+[educação]
+keywords = [
+    "alura", "coursera", "udemy", "livro", "curso",
+    "escola", "faculdade", "duolingo", "open english",
+    "apostila", "material escolar",
+]
+
+[lazer]
+keywords = [
+    "netflix", "spotify", "cinema", "teatro", "bar",
+    "balada", "show", "jogo", "game", "steam",
+    "playstation", "xbox", "disney", "hbo", "prime video",
+]
+
+[assinaturas]
+keywords = [
+    "assinatura", "mensalidade", "plano", "premium", "pro",
+    "annual", "anual",
+]
+
+[tecnologia]
+keywords = [
+    "amazon", "mercado livre", "kabum", "pichau", "terabyte",
+    "aliexpress", "shopee", "shein", "magalu", "casas bahia",
+]
+
+[beleza]
+keywords = [
+    "salão", "barbearia", "cabeleireiro", "cosméticos",
+    "perfume", "manicure", "maquiagem",
+]
+
+[pet]
+keywords = [
+    "pet", "veterinário", "ração", "petshop", "petz",
+    "cobasi", "vacina pet",
+]
+
+[vestuário]
+keywords = [
+    "roupa", "calçado", "tênis", "camisa", "renner",
+    "c&a", "riachuelo", "zara", "nike", "adidas",
+]
+
+[investimento]
+keywords = [
+    "investimento", "tesouro", "cdb", "fundo", "ação",
+    "fii", "poupança", "nuinvest", "xp", "rico",
+]
+
+[salário]
+keywords = [
+    "salário", "salario", "pagamento", "pro labore",
+    "freelance", "honorário", "bonificação",
+]

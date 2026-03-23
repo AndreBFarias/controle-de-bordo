@@ -1,0 +1,65 @@
+name: Relatório de Bug
+description: Reportar um problema encontrado no Controle de Bordo
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por reportar! Preencha o máximo possível para facilitar a investigação.
+
+  - type: textarea
+    id: descricao
+    attributes:
+      label: Descrição do problema
+      description: O que aconteceu? Seja específico.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproducao
+    attributes:
+      label: Passos para reproduzir
+      description: Como reproduzir o problema?
+      value: |
+        1. Executar '...'
+        2. ...
+        3. Erro aparece
+    validations:
+      required: true
+
+  - type: textarea
+    id: esperado
+    attributes:
+      label: Comportamento esperado
+      description: O que deveria ter acontecido?
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / Saída do terminal
+      description: Cole a saída do erro aqui
+      render: bash
+
+  - type: dropdown
+    id: modulo
+    attributes:
+      label: Módulo afetado
+      options:
+        - Finanças
+        - Metas / Hábitos
+        - Saúde
+        - Desktop (Bloqueio/Foco)
+        - Mobile (ADB/Tasker)
+        - CLI
+        - UI (Flet)
+        - IA
+        - Outro
+
+  - type: input
+    id: versao
+    attributes:
+      label: Versão
+      description: Saída de `bordo --version` ou commit hash

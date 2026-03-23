@@ -1,0 +1,48 @@
+name: Sugestão de Feature
+description: Propor uma nova funcionalidade para o Controle de Bordo
+title: "[feature] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Sugestões são bem-vindas! Descreva sua ideia com o máximo de contexto.
+
+  - type: textarea
+    id: problema
+    attributes:
+      label: Problema que resolve
+      description: Qual problema ou necessidade esta feature atende?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposta
+    attributes:
+      label: Solução proposta
+      description: Como você imagina que funcionaria?
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternativas
+    attributes:
+      label: Alternativas consideradas
+      description: Outras abordagens que pensou?
+
+  - type: dropdown
+    id: modulo
+    attributes:
+      label: Módulo relacionado
+      options:
+        - Finanças
+        - Metas / Hábitos
+        - Saúde
+        - Desktop (Bloqueio/Foco)
+        - Mobile (ADB/Tasker)
+        - CLI
+        - UI (Flet)
+        - IA
+        - Casal / Sync
+        - Infraestrutura
+        - Outro

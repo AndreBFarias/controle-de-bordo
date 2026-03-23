@@ -1,0 +1,109 @@
+caminho,tipo,linhas,camada,status,tags,proposito
+.env.example,config,27,infra,active,,Variáveis de ambiente modelo
+.gitignore,config,53,infra,active,,Regras de exclusão do git
+CLAUDE.md,doc,79,infra,active,startup-critico,Regras do projeto para desenvolvimento assistido
+LICENSE,doc,22,infra,active,,Licença GPL-3.0
+README.md,doc,145,infra,active,,Documentação pública do projeto
+install.sh,script,282,infra,active,startup-critico,Instalação idempotente do projeto
+uninstall.sh,script,192,infra,active,,Desinstalação com confirmações
+pyproject.toml,config,119,infra,active,startup-critico,Metadata do projeto e dependências
+requirements.txt,config,56,infra,active,,Dependências Python (espelho do pyproject.toml)
+assets/controle-de-bordo.desktop,config,11,infra,active,,Lançador de aplicação freedesktop
+.claude/settings.json,config,31,infra,active,,Hooks e configuração do ambiente de desenvolvimento
+.claude/hooks/check_registry.sh,script,59,infra,active,,Hook bloqueante: verifica REGISTRY.csv
+.claude/hooks/check_accentuation.sh,script,92,infra,active,,Hook de verificação de acentuação PT-BR
+.claude/hooks/check_accentuation.sh,script,92,infra,active,,Hook de verificação de acentuação PT-BR
+scripts/hooks/remove_coauthor.sh,script,20,infra,active,,Hook commit-msg: remove trailers de co-autoria
+configs/default.toml,config,86,infra,active,,Configuração padrão do sistema
+configs/categories.toml,config,86,dominio,active,,Mapeamento de categorias financeiras por palavras-chave
+docs/ARQUITETURA.md,doc,112,doc,active,,Visão geral da arquitetura hexagonal e stack
+docs/CONTRIBUINDO.md,doc,156,doc,active,,Guia de contribuição para desenvolvedores
+docs/DESKTOP.md,doc,131,doc,active,,Documentação de automação desktop Pop!_OS
+docs/FINANCAS.md,doc,139,doc,active,,Documentação do módulo financeiro
+docs/INTEGRACAO_LUNA.md,doc,116,doc,active,,Plano de integração futura com Luna
+docs/MOBILE.md,doc,126,doc,active,,Documentação de integração Android
+Arquitetura Modular para IA Local.md,doc,368,doc,active,referência,Documento original de concepção do projeto
+Automação de Vida com IA em Python.md,doc,220,doc,active,referência,Documento original de concepção do projeto
+Planejamento de Vida com IA Local.md,doc,208,doc,active,referência,Documento original de concepção do projeto
+src/__init__.py,source,0,infra,active,,Pacote raiz
+src/domain/__init__.py,source,0,dominio,active,,Pacote domínio
+src/domain/entities/__init__.py,source,37,dominio,active,hub,Re-exports de todas as entidades
+src/domain/entities/transaction.py,source,89,dominio,active,,Entidade Transação financeira
+src/domain/entities/bill.py,source,79,dominio,active,,Entidade Conta a pagar
+src/domain/entities/goal.py,source,107,dominio,active,,Entidade Meta com KPIs
+src/domain/entities/habit.py,source,86,dominio,active,,Entidade Hábito com streak
+src/domain/entities/health_record.py,source,82,dominio,active,,Entidade Registro de saúde
+src/domain/entities/study_session.py,source,57,dominio,active,,Entidade Sessão de estudo
+src/domain/ports/__init__.py,source,0,dominio,active,,Pacote ports
+src/domain/ports/storage.py,source,52,dominio,active,hub,Interface IStorage para persistência
+src/domain/ports/notifier.py,source,37,dominio,active,,Interface INotifier para notificações
+src/domain/ports/ai_provider.py,source,35,dominio,active,,Interface IAIProvider para provedores de IA
+src/domain/ports/bank_importer.py,source,48,dominio,active,,Interface IBankImporter para parsers de extrato
+src/domain/services/__init__.py,source,0,dominio,active,,Pacote serviços de domínio
+src/domain/services/categorizer.py,source,0,dominio,active,,Categorização automática de transações por palavras-chave
+src/domain/services/config_loader.py,source,0,dominio,active,,Carregamento de configuração TOML
+src/domain/services/financial_engine.py,source,227,dominio,active,hub,Motor financeiro - categorização e resumos
+src/domain/services/impulse_filter.py,source,190,dominio,active,,Motor de fricção anti-impulso
+src/domain/services/goal_tracker.py,source,110,dominio,active,,Tracker de metas com projeções
+src/domain/services/macro_indicators.py,source,131,dominio,active,,Indicadores macro BR (Selic IPCA CDI)
+src/domain/services/nudge_engine.py,source,207,dominio,active,,Motor de nudges comportamentais
+src/adapters/__init__.py,source,0,infra,active,,Pacote adaptadores
+src/adapters/storage/__init__.py,source,0,infra,active,,Pacote storage
+src/adapters/storage/sqlite_adapter.py,source,286,infra,active,hub;startup-critico,Adaptador SQLite com WAL mode
+src/adapters/importers/__init__.py,source,0,infra,active,,Pacote importadores bancários
+src/adapters/importers/nubank_csv.py,source,106,infra,active,,Parser CSV do Nubank
+src/adapters/importers/ofx_parser.py,source,115,infra,active,,Parser OFX genérico
+src/adapters/notifiers/__init__.py,source,0,infra,active,,Pacote notificadores (a implementar)
+src/adapters/ai/__init__.py,source,0,infra,active,,Pacote provedores de IA (a implementar)
+src/adapters/desktop/__init__.py,source,0,infra,active,,Pacote automação desktop (a implementar)
+src/events/__init__.py,source,0,orquestração,active,,Pacote event bus
+src/events/bus.py,source,99,orquestração,active,hub,Event bus pub/sub tipado
+src/events/events.py,source,112,orquestração,active,,Definições de eventos Pydantic
+src/ui/__init__.py,source,0,apresentação,active,,Pacote UI Flet (a implementar)
+src/ui/pages/__init__.py,source,0,apresentação,active,,Pacote páginas Flet (a implementar)
+src/ui/components/__init__.py,source,0,apresentação,active,,Pacote componentes Flet (a implementar)
+src/mobile/__init__.py,source,0,infra,active,,Pacote ponte Android (a implementar)
+src/cli/__init__.py,source,0,apresentação,active,,Pacote CLI
+src/cli/main.py,source,332,apresentação,active,hub,CLI Typer completa com todos os comandos
+tests/__init__.py,source,0,teste,active,,Pacote testes
+tests/conftest.py,source,48,teste,active,,Fixtures compartilhadas para testes E2E
+tests/e2e/__init__.py,source,0,teste,active,,Pacote testes E2E
+tests/e2e/test_fluxo_financeiro.py,source,251,teste,active,,Teste E2E do fluxo financeiro completo
+registry-map/README.md,doc,70,doc,active,,Índice do registry-map
+REGISTRY.csv,config,90,infra,active,hub;startup-critico,Registro central de todos os arquivos do projeto
+sprints/INDEX.md,doc,0,doc,active,hub,Índice geral de todas as sprints com status
+sprints/ROADMAP.md,doc,0,doc,active,,Visão de produto e cronograma macro
+sprints/concluidos/S00_FUNDACAO.md,doc,0,doc,active,,Sprint S00 - Fundação (concluído)
+sprints/concluidos/S01_FINANCAS_CORE.md,doc,0,doc,active,,Sprint S01 - Finanças Core (concluído)
+sprints/concluidos/S02_INDICADORES_MACRO.md,doc,0,doc,active,,Sprint S02 - Indicadores Macro (concluído)
+sprints/concluidos/S03_MOTOR_ANTI_IMPULSO.md,doc,0,doc,active,,Sprint S03 - Motor Anti-Impulso (concluído)
+sprints/planejados/S04_DASHBOARD_FLET.md,doc,0,doc,active,,Sprint S04 - Dashboard Flet (planejado)
+sprints/planejados/S03.5_CONFIGURACAO_ONBOARDING.md,doc,0,doc,active,,Sprint S03.5 - Configuração e Onboarding (planejado)
+sprints/planejados/S04.5_NOTIFICADORES.md,doc,0,doc,active,,Sprint S04.5 - Notificadores ntfy.sh e desktop (planejado)
+sprints/planejados/S05a_METAS_VINCULO.md,doc,0,doc,active,,Sprint S05a - Metas + vínculo financeiro (planejado)
+sprints/planejados/S05b_HABITOS_GAMIFICACAO.md,doc,0,doc,active,,Sprint S05b - Hábitos + gamificação (planejado)
+sprints/planejados/S06_BLOQUEIO_DESKTOP.md,doc,0,doc,active,,Sprint S06 - Bloqueio Desktop (planejado)
+sprints/planejados/S07_PONTE_MOBILE.md,doc,0,doc,active,,Sprint S07 - Ponte Mobile (planejado)
+sprints/planejados/S07.5_QUALIDADE_COBERTURA.md,doc,0,doc,active,,Sprint S07.5 - Qualidade e cobertura (planejado)
+sprints/planejados/S08_APP_MOBILE_FLET.md,doc,0,doc,active,,Sprint S08 - App Mobile Flet (planejado)
+sprints/planejados/S09_ESTUDOS_ESCRITA.md,doc,0,doc,active,,Sprint S09 - Estudos e Escrita (planejado)
+sprints/planejados/S10_IA_CONVERSACIONAL.md,doc,0,doc,active,,Sprint S10 - IA Conversacional (planejado)
+sprints/planejados/S11_SAUDE.md,doc,0,doc,active,,Sprint S11 - Saúde (planejado)
+sprints/planejados/S12_SYNC_CASAL.md,doc,0,doc,active,,Sprint S12 - Sync Casal (planejado)
+sprints/planejados/S13_INTEGRACAO_LUNA.md,doc,0,doc,active,,Sprint S13 - Integração Luna (planejado)
+sprints/relatorios/TEMPLATE_RELATORIO.md,doc,0,doc,active,,Template para relatórios executivos
+sprints/relatorios/RELATORIO_FASE_0_FUNDACAO.md,doc,0,doc,active,,Relatório executivo da Fase 0
+sprints/planejados/S14_ORCAMENTO_INTELIGENTE.md,doc,0,doc,active,,Sprint S14 - Orçamento Inteligente (planejado)
+sprints/planejados/S15_AUTOMACAO_WORKFLOWS.md,doc,0,doc,active,,Sprint S15 - Automação de Workflows (planejado)
+sprints/planejados/S16_VIDA_DOMESTICA.md,doc,0,doc,active,,Sprint S16 - Vida Doméstica (planejado)
+scripts/hooks/check_anonymity.py,script,0,infra,active,,Hook pre-commit: bloqueia menções a IA
+scripts/hooks/check_acentuacao.py,script,0,infra,active,,Hook pre-commit: verifica acentuação PT-BR
+scripts/hooks/check_registry.py,script,0,infra,active,,Hook pre-commit: verifica REGISTRY.csv
+.pre-commit-config.yaml,config,0,infra,active,startup-critico,Configuração de hooks de pre-commit
+Justfile,config,0,infra,active,,Automação local (just test/lint/ci/run)
+requirements-ci.txt,config,0,infra,active,,Dependências mínimas para CI
+.github/workflows/ci.yml,config,0,infra,active,,CI: pre-commit + ruff + pytest E2E
+.github/workflows/quality-gates.yml,config,0,infra,active,,Gates bloqueantes em PRs para main
+.github/ISSUE_TEMPLATE/bug.yml,config,0,infra,active,,Template de bug report
+.github/ISSUE_TEMPLATE/feature.yml,config,0,infra,active,,Template de feature request
+.github/PULL_REQUEST_TEMPLATE.md,doc,0,infra,active,,Template de Pull Request

@@ -1,0 +1,86 @@
+# Configuração padrão do Controle de Bordo
+# Copie para configs/user.toml e personalize
+
+[geral]
+moeda = "BRL"
+idioma = "pt-BR"
+db_path = "data/bordo.db"
+
+[financas]
+# Limiar de valor para considerar compra impulsiva (R$)
+impulse_threshold = 50.0
+# Orçamento mensal total (0 = desativado)
+monthly_budget = 0.0
+# Dias antes do vencimento para lembrar contas
+bill_reminder_days = 3
+
+[financas.categorias_risco]
+# Categorias que ativam o filtro anti-impulso
+categorias = ["lazer", "tecnologia", "vestuário", "beleza"]
+
+[financas.categorias_essenciais]
+# Categorias que nunca ativam fricção
+categorias = ["moradia", "alimentação", "saúde", "transporte", "educação"]
+
+[metas]
+# Verificar progresso das metas a cada N horas
+check_interval_hours = 12
+
+[habitos]
+# Horário padrão para lembrete de hábitos
+reminder_time = "09:00"
+
+[saude]
+# Meta diária de copos de água
+water_goal_cups = 8
+
+[desktop]
+# Ativar bloqueio de sites
+host_blocker_enabled = false
+# Lista de sites bloqueados (complementar ao modo de foco)
+blocked_sites = []
+
+[desktop.modos]
+# Modos de foco disponíveis
+[desktop.modos.trabalho]
+blocked = ["instagram.com", "tiktok.com", "twitter.com", "reddit.com", "shopee.com.br", "amazon.com.br"]
+notifications = false
+[desktop.modos.estudo]
+blocked = ["instagram.com", "tiktok.com", "twitter.com", "reddit.com"]
+notifications = false
+[desktop.modos.escrita]
+blocked = ["instagram.com", "tiktok.com", "twitter.com", "reddit.com", "youtube.com"]
+notifications = false
+[desktop.modos.livre]
+blocked = []
+notifications = true
+
+[mobile]
+# Ativar ponte ADB
+adb_enabled = false
+adb_host = ""
+adb_port = 5555
+
+[notificacoes]
+# ntfy.sh
+ntfy_enabled = false
+ntfy_server = "https://ntfy.sh"
+ntfy_topic = ""
+# Desktop (notify-send)
+desktop_enabled = true
+# Som
+sound_enabled = false
+
+[ia]
+# Provedor ativo: "anthropic", "ollama", "none"
+provider = "none"
+# Anthropic
+anthropic_model = "claude-sonnet-4-6"
+# Ollama
+ollama_host = "http://localhost:11434"
+ollama_model = "qwen3:8b"
+
+[sync]
+# Syncthing
+syncthing_enabled = false
+syncthing_api = "http://localhost:8384"

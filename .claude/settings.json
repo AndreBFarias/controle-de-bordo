@@ -1,0 +1,37 @@
+{
+  "model": "claude-opus-4-6",
+  "availableModels": ["opus"],
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Agent",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"decision\": \"block\", \"reason\": \"Agentes/subagentes estao PROIBIDOS neste projeto. Todo trabalho deve ser feito diretamente.\", \"hookSpecificOutput\": {\"hookEventName\": \"PreToolUse\", \"permissionDecision\": \"deny\", \"permissionDecisionReason\": \"Agentes proibidos - trabalhe diretamente sem delegar.\"}}'",
+            "statusMessage": "Verificando uso de agentes..."
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/check_accentuation.sh",
+            "timeout": 10,
+            "statusMessage": "Verificando acentuacao PT-BR..."
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/check_registry.sh",
+            "timeout": 5,
+            "statusMessage": "Verificando registro no REGISTRY.csv..."
+          }
+        ]
+      }
+    ]
+  }
+}

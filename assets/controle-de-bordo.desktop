@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Controle de Bordo
+GenericName=Life Operating System
+Comment=Gestão financeira, hábitos, saúde e automação pessoal - local-first e open source
+Exec=bash -c "cd {{INSTALL_DIR}} && source .venv/bin/activate && flet run src/ui/app.py"
+Terminal=false
+Categories=Office;Finance;Utility;
+Keywords=financas;habitos;saude;metas;automacao;
+StartupWMClass=controle-de-bordo
+StartupNotify=true
