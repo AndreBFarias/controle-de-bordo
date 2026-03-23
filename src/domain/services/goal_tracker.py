@@ -6,7 +6,7 @@ import logging
 from datetime import date, datetime
 from typing import Any
 
-from src.domain.entities.goal import Goal, GoalStatus
+from src.domain.entities.goal import Goal, GoalStatus, GoalType
 from src.domain.ports.storage import IStorage
 
 logger = logging.getLogger(__name__)
@@ -23,7 +23,7 @@ class GoalTracker:
         name: str,
         target_value: float,
         unit: str = "%",
-        goal_type: str = "pessoal",
+        goal_type: str | GoalType = "pessoal",
         deadline: date | None = None,
         **kwargs: Any,
     ) -> Goal:
@@ -32,7 +32,7 @@ class GoalTracker:
             name=name,
             target_value=target_value,
             unit=unit,
-            type=goal_type,
+            type=GoalType(goal_type) if isinstance(goal_type, str) else goal_type,
             deadline=deadline,
             **kwargs,
         )

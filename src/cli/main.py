@@ -97,7 +97,7 @@ def financas_importar(
     from src.adapters.importers.nubank_csv import NubankCSVImporter
     from src.adapters.importers.ofx_parser import OFXImporter
 
-    importers = [NubankCSVImporter(), OFXImporter()]
+    importers: list[NubankCSVImporter | OFXImporter] = [NubankCSVImporter(), OFXImporter()]
     transactions = []
 
     for importer in importers:

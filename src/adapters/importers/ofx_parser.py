@@ -54,11 +54,13 @@ class OFXImporter:
 
         bank_id = ""
         if hasattr(ofx, "account") and ofx.account:
-            bank_id = getattr(ofx.account, "institution", None)
-            if hasattr(bank_id, "organization"):
-                bank_id = bank_id.organization or ""
+            institution = getattr(ofx.account, "institution", None)
+            if institution and hasattr(institution, "organization"):
+                bank_id = str(institution.organization or "")
+            elif institution:
+                bank_id = str(institution)
             else:
-                bank_id = str(bank_id) if bank_id else ""
+                bank_id = ""
 
         account = ofx.account if hasattr(ofx, "account") else None
         statement = account.statement if account and hasattr(account, "statement") else None
