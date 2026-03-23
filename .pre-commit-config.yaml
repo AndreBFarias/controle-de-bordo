@@ -1,0 +1,43 @@
+fail_fast: false
+repos:
+  - repo: local
+    hooks:
+      - id: check-anonymity
+        name: "[01] Guarda de Identidade"
+        language: system
+        entry: python3 scripts/hooks/check_anonymity.py
+        pass_filenames: true
+        types: [text]
+        exclude: ^(scripts/hooks/check_anonymity\.py|\.env\.example|\.claude/)
+
+      - id: check-acentuacao
+        name: "[03] Acentuação PT-BR"
+        language: system
+        entry: python3 scripts/hooks/check_acentuacao.py
+        pass_filenames: true
+        types: [text]
+        exclude: ^(\.venv/|data/|\.git/|scripts/|\.claude/|\.github/|configs/|sprints/|CLAUDE\.md|README\.md|Arquitetura|Planejamento|docs/|src/cli/)
+
+      - id: check-registry
+        name: "[04] Verificação REGISTRY.csv"
+        language: system
+        entry: python3 scripts/hooks/check_registry.py
+        pass_filenames: true
+        types: [text]
+        exclude: ^(\.venv/|data/|\.git/|__pycache__/)
+
+      - id: ruff-lint
+        name: "[05] Ruff Lint"
+        language: system
+        entry: ruff check --fix
+        pass_filenames: true
+        types: [python]
+        exclude: ^(\.venv/|data/)
+
+      - id: ruff-format
+        name: "[06] Ruff Format"
+        language: system
+        entry: ruff format
+        pass_filenames: true
+        types: [python]
+        exclude: ^(\.venv/|data/)

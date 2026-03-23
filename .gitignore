@@ -1,0 +1,53 @@
+# Caches
+__pycache__/
+*.py[cod]
+*.pyo
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+
+# Virtual environments
+venv/
+.venv/
+
+# Dados locais (contem informacoes financeiras pessoais)
+data/
+*.db
+*.db-wal
+*.db-shm
+
+# Imports bancarios
+imports/
+
+# Logs
+logs/
+*.log
+
+# Secrets
+.env
+*.key
+*.pem
+.git-credentials
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Build
+dist/
+build/
+*.egg-info/
+
+# Flet
+.flet/
+
+# Evidencias de IA
+Task_Final/
+IMPORTANT.md
