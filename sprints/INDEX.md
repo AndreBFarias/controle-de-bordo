@@ -1,142 +1,106 @@
 # Controle de Bordo - Índice de Sprints
 
-> Atualizado em: 2026-03-22 (pós-auditoria + DevOps)
-> Total: 22 sprints (4 concluídos, 18 planejados) cobrindo 100% das features dos documentos
+> Atualizado em: 2026-03-23 (plano de 20 sprints via review.md)
+> Total: 20 sprints em 4 semanas, 1 concluída, 19 planejadas
 
 ## Status Geral
 
-| Fase | Sprints | Status |
-|------|---------|--------|
-| Fase 0: Fundação | S00-S03 | CONCLUÍDA |
-| Fase 0.5: Consolidação | S03.5 + DevOps | PLANEJADA |
-| Fase 1: Interface e Experiência | S04, S04.5, S05a, S05b | PLANEJADA |
-| Fase 1.5: Inteligência | S10 | PLANEJADA (antecipada) |
-| Fase 2: Automação | S06, S07, S07.5 | PLANEJADA |
-| Fase 3: Expansão | S08, S09, S11 | PLANEJADA |
-| Fase 4: Integração | S12, S13 | FUTURA |
+| Fase | Sprints | Semana | Status |
+|------|---------|--------|--------|
+| Fundação | S01-S05 | 1 | S01 concluída, S02-S05 planejadas |
+| Serviços e Standalone | S06-S10 | 2 | Planejadas |
+| Integração Luna | S11-S15 | 3 | Planejadas |
+| UI e Polish | S16-S20 | 4 | Planejadas |
 
 ## Sprints por Ordem de Execução
 
-### Fase 0: Fundação (CONCLUÍDA)
+### Semana 1 - Fundação (S01-S05)
 
-| # | Sprint | Status | Duração real | Entregáveis |
-|---|--------|--------|-------------|-------------|
-| S00 | [Fundação](concluidos/S00_FUNDACAO.md) | CONCLUÍDO | Sessão única (~3h) | Repo, arq. hexagonal, SQLite, event bus, CLI |
-| S01 | [Finanças Core](concluidos/S01_FINANCAS_CORE.md) | CONCLUÍDO | Sessão única (~3h) | Entidades, CSV/OFX, categorização |
-| S02 | [Indicadores Macro](concluidos/S02_INDICADORES_MACRO.md) | CONCLUÍDO | Sessão única (~3h) | finbr, Selic, IPCA, CDI, projeções |
-| S03 | [Motor Anti-Impulso](concluidos/S03_MOTOR_ANTI_IMPULSO.md) | CONCLUÍDO | Sessão única (~3h) | Fricção digital, nudges |
+| # | Sprint | Status | Duração | Entregáveis |
+|---|--------|--------|---------|-------------|
+| S01 | [Scaffolding e pyproject.toml](planejados/S01_SCAFFOLDING_PYPROJECT.md) | CONCLUIDO | 1 dia | src/bordo/, hatchling, pytest/mypy/ruff |
+| S02 | [Domain Entities](planejados/S02_DOMAIN_ENTITIES.md) | PLANEJADO | 1 dia | 6 entidades Pydantic, 9+ eventos tipados |
+| S03 | [Ports e Protocols](planejados/S03_PORTS_PROTOCOLS.md) | PLANEJADO | 1 dia | 5 Protocols @runtime_checkable |
+| S04 | [Event Bus Tipado](planejados/S04_EVENT_BUS_TIPADO.md) | PLANEJADO | 1 dia | BordoEventBus síncrono, wildcard handler |
+| S05 | [SQLite WAL](planejados/S05_SQLITE_WAL.md) | PLANEJADO | 1 dia | SQLiteStore, WAL, user_version, backup |
 
-> Nota: S00-S03 foram executados em uma sessão intensiva. A divisão é lógica para rastreabilidade.
+### Semana 2 - Serviços e Standalone (S06-S10)
 
-### Fase 0.5: Consolidação (PLANEJADA - pós-auditoria)
+| # | Sprint | Status | Duração | Entregáveis |
+|---|--------|--------|---------|-------------|
+| S06 | [FinancialEngine](planejados/S06_FINANCIAL_ENGINE.md) | PLANEJADO | 2 dias | Motor financeiro, CSV Nubank, OFX |
+| S07 | [ImpulseFilter e GoalTracker](planejados/S07_IMPULSE_GOAL_TRACKER.md) | PLANEJADO | 1 dia | Anti-impulso, metas, milestones |
+| S08 | [CLI Typer](planejados/S08_CLI_TYPER.md) | PLANEJADO | 1 dia | 10+ comandos, bootstrap standalone |
+| S09 | [Config e Bootstrap](planejados/S09_CONFIG_BOOTSTRAP.md) | PLANEJADO | 1 dia | TOML, dual-mode, detect_mode |
+| S10 | [JSON Compat](planejados/S10_JSON_COMPAT.md) | PLANEJADO | 1 dia | JsonStore formato life_manager |
 
-| # | Sprint | Status | Foco |
-|---|--------|--------|------|
-| S03.5 | [Configuração e Onboarding](planejados/S03.5_CONFIGURACAO_ONBOARDING.md) | PLANEJADO | TOML loader, wizard setup, EventBus integrado |
+### Semana 3 - Integração Luna (S11-S15)
 
-### Fase 1: Interface e Experiência (PLANEJADA)
+| # | Sprint | Status | Duração | Entregáveis |
+|---|--------|--------|---------|-------------|
+| S11 | [EventBusBridge](planejados/S11_EVENT_BUS_BRIDGE.md) | PLANEJADO | 2 dias | Bridge bidirecional, EventRegistry |
+| S12 | [Plugin Luna](planejados/S12_PLUGIN_LUNA.md) | PLANEJADO | 1 dia | BordoLunaPlugin, module.yaml |
+| S13 | [Migração JSON->SQLite](planejados/S13_MIGRACAO_JSON_SQLITE.md) | PLANEJADO | 2 dias | 4 fases, DualWrite, rollback |
+| S14 | [Contract Tests](planejados/S14_CONTRACT_TESTS.md) | PLANEJADO | 1 dia | Test base classes, mypy --strict |
+| S15 | [Integração E2E](planejados/S15_INTEGRACAO_E2E.md) | PLANEJADO | 1 dia | 5 cenários E2E, graceful degradation |
 
-| # | Sprint | Status | Foco |
-|---|--------|--------|------|
-| S04 | [Dashboard Flet](planejados/S04_DASHBOARD_FLET.md) | PLANEJADO | UI visual desktop/mobile |
-| S04.5 | [Notificadores](planejados/S04.5_NOTIFICADORES.md) | PLANEJADO | ntfy.sh + notify-send |
-| S05a | [Metas + Vínculo Financeiro](planejados/S05a_METAS_VINCULO.md) | PLANEJADO | Metas com vínculo a transações |
-| S05b | [Hábitos + Gamificação](planejados/S05b_HABITOS_GAMIFICACAO.md) | PLANEJADO | Streaks, conquistas |
+### Semana 4 - UI e Polish (S16-S20)
 
-### Fase 1.5: Inteligência (PLANEJADA - antecipada da Fase 3)
+| # | Sprint | Status | Duração | Entregáveis |
+|---|--------|--------|---------|-------------|
+| S16 | [ViewModels](planejados/S16_VIEWMODELS.md) | PLANEJADO | 1 dia | Observable[T], 4 ViewModels |
+| S17 | [Widgets Textual](planejados/S17_WIDGETS_TEXTUAL.md) | PLANEJADO | 1 dia | 4 widgets TUI para Luna |
+| S18 | [Flet UI](planejados/S18_FLET_UI.md) | PLANEJADO | 2 dias | 4 páginas, tema escuro, responsivo |
+| S19 | [Macro e Nudge](planejados/S19_MACRO_NUDGE.md) | PLANEJADO | 1 dia | Selic/IPCA/CDI, 7+ regras nudge |
+| S20 | [CI, Docs e Release](planejados/S20_CI_DOCS_RELEASE.md) | PLANEJADO | 2 dias | Pipeline CI, docs, tag v0.1.0 |
 
-| # | Sprint | Status | Foco |
-|---|--------|--------|------|
-| S10 | [IA Conversacional](planejados/S10_IA_CONVERSACIONAL.md) | PLANEJADO | Anthropic API + Ollama adapter |
+## Grafo de Dependências
 
-> Antecipada porque o usuário declarou intenção de usar IA desde o início.
+```
+S01 ── S02 ── S06 ── S08 (standalone funcional)
+ │      │      │
+ │      └──────┤
+ │             │
+ ├── S03 ── S04 ── S11 ── S12 ── S15
+ │      │              │
+ │      └── S05 ── S06 │
+ │           │     │   │
+ │           └── S09   S13
+ │                     │
+ └── S10 ───────── S13 ── S14
+                          │
+S06 + S07 ── S16 ── S17
+              │
+              └── S18
 
-### Fase 2: Automação (PLANEJADA)
+S06 + S04 ── S19
 
-| # | Sprint | Status | Foco |
-|---|--------|--------|------|
-| S06 | [Bloqueio Desktop](planejados/S06_BLOQUEIO_DESKTOP.md) | PLANEJADO | /etc/hosts, GNOME, systemd |
-| S07 | [Ponte Mobile](planejados/S07_PONTE_MOBILE.md) | PLANEJADO | ADB, Tasker, Shizuku |
-| S07.5 | [Qualidade e Cobertura](planejados/S07.5_QUALIDADE_COBERTURA.md) | PLANEJADO | 30+ testes, 70% cobertura |
+Todas ── S20
+```
 
-### Fase 3: Expansão (PLANEJADA)
+## Caminho Crítico
 
-| # | Sprint | Status | Foco |
-|---|--------|--------|------|
-| S08 | [App Mobile Flet](planejados/S08_APP_MOBILE_FLET.md) | PLANEJADO | Dashboard como APK |
-| S09 | [Estudos e Escrita](planejados/S09_ESTUDOS_ESCRITA.md) | PLANEJADO | Trackers, Watchdog |
-| S11 | [Saúde](planejados/S11_SAUDE.md) | PLANEJADO | Health Connect, HRV |
+**S01 -> S02 -> S03 -> S04 -> S05 -> S06 -> S08** (standalone funcional na Semana 2)
 
-### Fase 4: Integração (FUTURA)
+A partir de S08, o Bordo funciona sozinho como CLI. Integração Luna (S11-S15) e UI (S16-S18) são paralelas.
 
-| # | Sprint | Status | Foco |
-|---|--------|--------|------|
-| S12 | [Sync Casal](planejados/S12_SYNC_CASAL.md) | FUTURO | Syncthing, CRDTs |
-| S13 | [Integração Luna](planejados/S13_INTEGRACAO_LUNA.md) | FUTURO | Módulo IModule |
+## Sprints Legadas (plano anterior)
 
-### Fase 5: Vida Completa (FUTURA)
+Sprints do plano original (S00-S16) foram movidas para [legacy/](planejados/legacy/). As sprints concluídas S00-S03 permanecem em [concluídos/](concluidos/).
 
-| # | Sprint | Status | Foco |
-|---|--------|--------|------|
-| S14 | [Orçamento Inteligente](planejados/S14_ORCAMENTO_INTELIGENTE.md) | FUTURO | Baldes, desvio automático, bloqueio condicional |
-| S15 | [Automação de Workflows](planejados/S15_AUTOMACAO_WORKFLOWS.md) | FUTURO | Chronos Engine, backup, cron interno |
-| S16 | [Vida Doméstica](planejados/S16_VIDA_DOMESTICA.md) | FUTURO | Cardápio, cuidado pessoal, CalDAV |
+| Sprint | Status | Localização |
+|--------|--------|-------------|
+| S00 Fundação | Concluído | [concluidos/S00_FUNDACAO.md](concluidos/S00_FUNDACAO.md) |
+| S01 Finanças Core | Concluído | [concluidos/S01_FINANCAS_CORE.md](concluidos/S01_FINANCAS_CORE.md) |
+| S02 Indicadores Macro | Concluído | [concluidos/S02_INDICADORES_MACRO.md](concluidos/S02_INDICADORES_MACRO.md) |
+| S03 Motor Anti-Impulso | Concluído | [concluidos/S03_MOTOR_ANTI_IMPULSO.md](concluidos/S03_MOTOR_ANTI_IMPULSO.md) |
+| S03.5-S16 (antigos) | Legado | [planejados/legacy/](planejados/legacy/) |
 
-## Relatórios Executivos
+## Relatórios
 
 | Relatório | Fase | Status |
 |-----------|------|--------|
-| [Fase 0 - Fundação](relatorios/RELATORIO_FASE_0_FUNDACAO.md) | S00-S03 | DISPONÍVEL |
-| [Template](relatorios/TEMPLATE_RELATORIO.md) | - | REFERÊNCIA |
-
-## Grafo de Dependências (pós-auditoria)
-
-```
-S00 ── S01 ── S02 ── S03        (Fase 0: fundação)
-                      │
-                      S03.5      (Fase 0.5: consolidação)
-                      │
-              ┌───────┤
-              │       │
-              S04 ── S04.5       (Fase 1: interface)
-              │       │
-              ├── S05a ── S05b
-              │
-              S10                (Fase 1.5: inteligência)
-              │
-              ├── S06
-              │         │
-              ├── S07 ──┤        (Fase 2: automação)
-              │         │
-              │       S07.5
-              │
-              ├── S08
-              ├── S09            (Fase 3: expansão)
-              ├── S11
-              │
-              └── S12 ── S13     (Fase 4: integração)
-                          │
-                    ┌─────┤
-                    S14   S15      (Fase 5: vida completa)
-                    │     │
-                    └──S16─┘
-```
-
-## Histórico de Mudanças
-
-### DevOps (2026-03-22)
-- Git + GitHub + CI/CD + pre-commit + Justfile
-- Mapeamento de 100% das features dos 3 documentos
-- **S14 criada**: Orçamento Inteligente (baldes, desvio, bloqueio condicional)
-- **S15 criada**: Automação de Workflows (Chronos Engine, backup)
-- **S16 criada**: Vida Doméstica (cardápio, cuidado pessoal, CalDAV)
-
-### Auditoria (2026-03-22)
-- Fase 0.5 (S03.5) - Consolidação
-- S05 dividida em S05a + S05b
-- S04.5 - Notificadores
-- S07.5 - Qualidade
-- S10 antecipada para Fase 1.5
-- S08 rebaixada para Fase 3
+| [Fase 0 - Fundação](relatorios/RELATORIO_FASE_0_FUNDACAO.md) | S00-S03 (antigo) | Disponível |
+| [Template](relatorios/TEMPLATE_RELATORIO.md) | - | Referência |
 
 *"Planeje o trabalho e trabalhe o plano." - Napoleon Hill*

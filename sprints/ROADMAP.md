@@ -1,11 +1,11 @@
 # Controle de Bordo - Roadmap de Produto
 
 > Visão estratégica e cronograma macro do projeto.
-> Versão: 0.1.0 | Data: 2026-03-22
+> Versão: 0.1.0 | Data: 2026-03-23 | Plano: review.md (20 sprints)
 
 ## Visão do Produto
 
-Ser o primeiro Life Operating System open source maduro em Python, focado no contexto brasileiro, com gestão financeira integrada a hábitos, saúde e automação de dispositivos. Local-first, gratuito, sem dependência de cloud.
+Ser o primeiro Life Operating System open source maduro em Python, focado no contexto brasileiro, com gestão financeira integrada a hábitos, saúde e automação de dispositivos. Local-first, gratuito, sem dependência de cloud. Funciona standalone e como módulo Luna.
 
 ## Público-Alvo
 
@@ -14,95 +14,122 @@ Ser o primeiro Life Operating System open source maduro em Python, focado no con
 - Pessoas que querem disciplina financeira automatizada (anti-impulso)
 - Comunidade open source brasileira
 
-## Fases do Projeto
+## Arquitetura-Alvo
 
-### Fase 0: Fundação (CONCLUÍDA - Semanas 1-2)
+O Bordo é uma **biblioteca Python independente** que expõe um `plugin.py` opcional. A Luna consome via entry points. Nunca o contrário.
 
-**Objetivo**: Infraestrutura técnica sólida e motor financeiro funcional.
+```
+src/bordo/
+  domain/           -> Lógica pura, zero dependência externa
+    entities.py     -> 6 entidades Pydantic v2
+    events.py       -> Eventos tipados BaseModel
+    services.py     -> FinancialEngine, GoalTracker, ImpulseFilter, NudgeEngine
+    ports.py        -> Protocols (IStorage, INotifier, IEventBus)
+  adapters/         -> Implementações concretas
+    sqlite_store.py -> SQLite + WAL
+    json_store.py   -> Compat life_manager Luna
+    luna_bridge.py  -> EventBusBridge bidirecional
+    flet_ui/        -> Interface Flet
+  migrations/       -> JSON -> SQLite faseada
+```
 
-| Entregável | Status |
-|------------|--------|
-| Arquitetura hexagonal completa | Concluído |
-| SQLite + WAL para persistência | Concluído |
-| 6 entidades de domínio (Pydantic) | Concluído |
-| 4 ports (interfaces) | Concluído |
-| 5 serviços de domínio | Concluído |
-| Event bus tipado | Concluído |
-| Importação CSV Nubank + OFX | Concluído |
-| Indicadores macro (Selic, IPCA, CDI) | Concluído |
-| Motor anti-impulso | Concluído |
-| CLI Typer completa | Concluído |
-| 11 testes E2E passando | Concluído |
-| Documentação completa (6 docs) | Concluído |
-| install.sh / uninstall.sh | Concluído |
-| Registry-map com hook bloqueante | Concluído |
+## Fases do Projeto (4 semanas)
 
-### Fase 0.5: Consolidação (2026-03-23 a 2026-03-24) - NOVA
+### Semana 1: Fundação (S01-S05)
 
-**Objetivo**: Corrigir lacunas da auditoria e preparar onboarding.
+**Objetivo**: Pacote instalável com domínio tipado, event bus e persistência SQLite.
 
-- S03.5: config_loader integrado, wizard de setup, EventBus nos serviços, logging
+| Sprint | Entregável | Status |
+|--------|-----------|--------|
+| S01 | Scaffolding, hatchling, src/bordo/ | Concluído |
+| S02 | 6 entidades Pydantic + eventos tipados | Planejado |
+| S03 | 5 Protocols @runtime_checkable | Planejado |
+| S04 | BordoEventBus síncrono | Planejado |
+| S05 | SQLiteStore com WAL e backup | Planejado |
 
-### Fase 1: Interface e Experiência (2026-03-25 a 2026-04-05)
+### Semana 2: Serviços e Standalone (S06-S10)
 
-**Objetivo**: Tornar o sistema visual e acessível.
+**Objetivo**: Bordo funcional como CLI standalone com motor financeiro e anti-impulso.
 
-- S04: Dashboard Flet com métricas financeiras e de metas
-- S04.5: Notificadores (ntfy.sh + desktop)
-- S05a: Metas com vínculo automático a transações financeiras
-- S05b: Hábitos com streaks visuais e gamificação
+| Sprint | Entregável | Status |
+|--------|-----------|--------|
+| S06 | FinancialEngine + CSV Nubank + OFX | Planejado |
+| S07 | ImpulseFilter + GoalTracker | Planejado |
+| S08 | CLI Typer com 10+ comandos | Planejado |
+| S09 | Config TOML dual-mode | Planejado |
+| S10 | JsonStore compatível life_manager | Planejado |
 
-### Fase 1.5: Inteligência (2026-04-06 a 2026-04-09) - ANTECIPADA
+**Marco**: `bordo import nubank.csv && bordo balance` funciona.
 
-**Objetivo**: Integrar IA desde cedo (declaração do usuário).
+### Semana 3: Integração Luna (S11-S15)
 
-- S10: Anthropic API + Ollama adapter para análise financeira
+**Objetivo**: Bordo como módulo Luna via entry points, com migração de dados.
 
-### Fase 2: Automação (2026-04-10 a 2026-04-22)
+| Sprint | Entregável | Status |
+|--------|-----------|--------|
+| S11 | EventBusBridge bidirecional | Planejado |
+| S12 | BordoLunaPlugin + module.yaml | Planejado |
+| S13 | Migração JSON->SQLite em 4 fases | Planejado |
+| S14 | Contract tests + mypy --strict | Planejado |
+| S15 | 5 cenários E2E de integração | Planejado |
 
-**Objetivo**: Automatizar o ambiente desktop e mobile.
+**Marco**: `pip install controle-de-bordo[luna]` e Luna descobre o Bordo automaticamente.
 
-- S06: Bloqueio de sites via /etc/hosts + systemd
-- S07: Ponte ADB, Tasker, Shizuku, modos de foco GNOME
-- S07.5: Sprint de qualidade (30+ testes, 70% cobertura)
+### Semana 4: UI e Polish (S16-S20)
 
-### Fase 3: Expansão (2026-04-23 a 2026-05-07)
+**Objetivo**: Interface visual, indicadores macro e release v0.1.0.
 
-**Objetivo**: Cobrir todas as áreas da vida.
+| Sprint | Entregável | Status |
+|--------|-----------|--------|
+| S16 | Observable[T] + 4 ViewModels | Planejado |
+| S17 | 4 widgets Textual para Luna | Planejado |
+| S18 | 4 páginas Flet standalone | Planejado |
+| S19 | MacroIndicators + NudgeEngine | Planejado |
+| S20 | CI, docs, limpeza, tag v0.1.0 | Planejado |
 
-- S08: App Flet empacotado como APK
-- S09: Tracker de estudos e escrita (Watchdog)
-- S11: Health Connect para dados de saúde
-- HRV e ajuste adaptativo de rotina
-
-### Fase 4: Integração (Semanas 11+)
-
-**Objetivo**: Unificar com o ecossistema Luna.
-
-- Sincronização de casal via Syncthing + CRDTs
-- Empacotamento como módulo Luna (IModule)
-- Migração de dados do life_manager
-- Coexistência Luna + Bordo standalone
+**Marco**: `bordo ui` abre dashboard Flet com dados reais.
 
 ## Métricas de Sucesso
 
-| Métrica | Fase 0 | Fase 1 | Fase 2 | Fase 3 | Fase 4 |
-|---------|--------|--------|--------|--------|--------|
-| Arquivos Python | 42 | ~60 | ~80 | ~100 | ~110 |
-| Testes E2E | 11 | ~25 | ~40 | ~55 | ~65 |
-| Cobertura (%) | - | 60% | 70% | 80% | 85% |
-| Entidades | 6 | 6 | 6 | 8 | 8 |
-| Bancos suportados | 2 | 2 | 2 | 4 | 4 |
-| Plataformas | CLI | CLI+Desktop | CLI+Desktop+Mobile | CLI+Desktop+Mobile | CLI+Desktop+Mobile+Luna |
+| Métrica | Semana 1 | Semana 2 | Semana 3 | Semana 4 |
+|---------|----------|----------|----------|----------|
+| Arquivos Python | ~25 | ~40 | ~55 | ~70 |
+| Testes | 0 | ~25 | ~45 | ~65 |
+| Cobertura (%) | - | 60% | 75% | 80%+ |
+| Entidades | 6 | 6 | 6 | 6 |
+| Protocols | 5 | 5 | 5 | 5 |
+| Plataformas | Pacote | CLI | CLI+Luna | CLI+Luna+Flet |
 
 ## Riscos e Mitigações
 
 | Risco | Prob. | Impacto | Mitigação |
 |-------|-------|---------|-----------|
-| Flet não atingir 1.0 estável | Média | Alto | Manter CLI funcional como fallback |
-| Android 17+ restringir Shizuku | Baixa | Médio | ADB via rede como alternativa |
-| finbr/python-bcb descontinuados | Baixa | Médio | Acesso direto à API SGS do BCB |
-| Escopo crescer demais | Alta | Alto | Respeitar sprints, não misturar features |
+| Scope creep (Android, CRDT, etc.) | Alta | Alto | Pós-v0.1.0 estritamente |
+| life_manager mais acoplado que esperado | Média | Médio | JsonStore como ponte (S10) |
+| Flet pré-1.0 com API instável | Média | Médio | Código isolado em adapters/flet_ui/ |
+| Complexidade do EventBusBridge | Média | Alto | 100% cobertura, guard reentrância |
+| mypy --strict revelar muitos erros | Baixa | Baixo | Habilitar gradualmente (S14) |
+
+## Decisões Técnicas Fundamentais
+
+| Decisão | Motivo |
+|---------|--------|
+| Hatchling sobre setuptools | PEP 660 nativo, build hooks, configuração limpa |
+| Protocols sobre ABCs | Structural subtyping sem herança forçada |
+| user_version sobre Alembic | Projeto pessoal com SQLite, Alembic é overkill |
+| Observable caseiro sobre RxPY | 30 linhas, zero dependências |
+| Prefixo "bordo." em eventos | Previne colisão com 130+ eventos Luna |
+
+## Pós-v0.1.0
+
+Features adiadas intencionalmente para após o release:
+- Integração Android (Shizuku, Tasker)
+- Sync de casal (CRDTs, Syncthing)
+- Health Connect
+- Bloqueio desktop (/etc/hosts, GNOME)
+- IA conversacional (Anthropic API, Ollama)
+- Orçamento inteligente (baldes)
+- App mobile (Flet APK)
 
 ## Diferencial Competitivo
 
@@ -113,8 +140,7 @@ Ser o primeiro Life Operating System open source maduro em Python, focado no con
 | Custo | Gratuito | Assinatura mensal |
 | Indicadores BR | Selic, IPCA, CDI direto do BCB | Genéricos ou inexistentes |
 | Anti-impulso | Economia comportamental | Alertas simples |
-| Automação | Desktop + Mobile integrados | Só mobile |
-| Personalização | 100% código Python | Interface limitada |
+| Integração | Módulo Luna plugável | Ecossistema fechado |
 | Privacidade | Zero telemetria | Coleta de dados |
 
 *"A melhor maneira de prever o futuro é inventá-lo." - Alan Kay*

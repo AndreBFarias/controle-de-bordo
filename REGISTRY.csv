@@ -76,25 +76,46 @@ sprints/concluidos/S00_FUNDACAO.md,doc,0,doc,active,,Sprint S00 - Fundação (co
 sprints/concluidos/S01_FINANCAS_CORE.md,doc,0,doc,active,,Sprint S01 - Finanças Core (concluído)
 sprints/concluidos/S02_INDICADORES_MACRO.md,doc,0,doc,active,,Sprint S02 - Indicadores Macro (concluído)
 sprints/concluidos/S03_MOTOR_ANTI_IMPULSO.md,doc,0,doc,active,,Sprint S03 - Motor Anti-Impulso (concluído)
-sprints/planejados/S04_DASHBOARD_FLET.md,doc,0,doc,active,,Sprint S04 - Dashboard Flet (planejado)
-sprints/planejados/S03.5_CONFIGURACAO_ONBOARDING.md,doc,0,doc,active,,Sprint S03.5 - Configuração e Onboarding (planejado)
-sprints/planejados/S04.5_NOTIFICADORES.md,doc,0,doc,active,,Sprint S04.5 - Notificadores ntfy.sh e desktop (planejado)
-sprints/planejados/S05a_METAS_VINCULO.md,doc,0,doc,active,,Sprint S05a - Metas + vínculo financeiro (planejado)
-sprints/planejados/S05b_HABITOS_GAMIFICACAO.md,doc,0,doc,active,,Sprint S05b - Hábitos + gamificação (planejado)
-sprints/planejados/S06_BLOQUEIO_DESKTOP.md,doc,0,doc,active,,Sprint S06 - Bloqueio Desktop (planejado)
-sprints/planejados/S07_PONTE_MOBILE.md,doc,0,doc,active,,Sprint S07 - Ponte Mobile (planejado)
-sprints/planejados/S07.5_QUALIDADE_COBERTURA.md,doc,0,doc,active,,Sprint S07.5 - Qualidade e cobertura (planejado)
-sprints/planejados/S08_APP_MOBILE_FLET.md,doc,0,doc,active,,Sprint S08 - App Mobile Flet (planejado)
-sprints/planejados/S09_ESTUDOS_ESCRITA.md,doc,0,doc,active,,Sprint S09 - Estudos e Escrita (planejado)
-sprints/planejados/S10_IA_CONVERSACIONAL.md,doc,0,doc,active,,Sprint S10 - IA Conversacional (planejado)
-sprints/planejados/S11_SAUDE.md,doc,0,doc,active,,Sprint S11 - Saúde (planejado)
-sprints/planejados/S12_SYNC_CASAL.md,doc,0,doc,active,,Sprint S12 - Sync Casal (planejado)
-sprints/planejados/S13_INTEGRACAO_LUNA.md,doc,0,doc,active,,Sprint S13 - Integração Luna (planejado)
+sprints/planejados/legacy/S03.5_CONFIGURACAO_ONBOARDING.md,doc,0,doc,legacy,,Sprint S03.5 - Configuração e Onboarding (legado)
+sprints/planejados/legacy/S04_DASHBOARD_FLET.md,doc,0,doc,legacy,,Sprint S04 - Dashboard Flet (legado)
+sprints/planejados/legacy/S04.5_NOTIFICADORES.md,doc,0,doc,legacy,,Sprint S04.5 - Notificadores (legado)
+sprints/planejados/legacy/S05a_METAS_VINCULO.md,doc,0,doc,legacy,,Sprint S05a - Metas (legado)
+sprints/planejados/legacy/S05b_HABITOS_GAMIFICACAO.md,doc,0,doc,legacy,,Sprint S05b - Hábitos (legado)
+sprints/planejados/legacy/S06_BLOQUEIO_DESKTOP.md,doc,0,doc,legacy,,Sprint S06 - Bloqueio Desktop (legado)
+sprints/planejados/legacy/S07_PONTE_MOBILE.md,doc,0,doc,legacy,,Sprint S07 - Ponte Mobile (legado)
+sprints/planejados/legacy/S07.5_QUALIDADE_COBERTURA.md,doc,0,doc,legacy,,Sprint S07.5 - Qualidade (legado)
+sprints/planejados/legacy/S08_APP_MOBILE_FLET.md,doc,0,doc,legacy,,Sprint S08 - App Mobile (legado)
+sprints/planejados/legacy/S09_ESTUDOS_ESCRITA.md,doc,0,doc,legacy,,Sprint S09 - Estudos (legado)
+sprints/planejados/legacy/S10_IA_CONVERSACIONAL.md,doc,0,doc,legacy,,Sprint S10 - IA Conversacional (legado)
+sprints/planejados/legacy/S11_SAUDE.md,doc,0,doc,legacy,,Sprint S11 - Saúde (legado)
+sprints/planejados/legacy/S12_SYNC_CASAL.md,doc,0,doc,legacy,,Sprint S12 - Sync Casal (legado)
+sprints/planejados/legacy/S13_INTEGRACAO_LUNA.md,doc,0,doc,legacy,,Sprint S13 - Integração Luna (legado)
 sprints/relatorios/TEMPLATE_RELATORIO.md,doc,0,doc,active,,Template para relatórios executivos
 sprints/relatorios/RELATORIO_FASE_0_FUNDACAO.md,doc,0,doc,active,,Relatório executivo da Fase 0
-sprints/planejados/S14_ORCAMENTO_INTELIGENTE.md,doc,0,doc,active,,Sprint S14 - Orçamento Inteligente (planejado)
-sprints/planejados/S15_AUTOMACAO_WORKFLOWS.md,doc,0,doc,active,,Sprint S15 - Automação de Workflows (planejado)
-sprints/planejados/S16_VIDA_DOMESTICA.md,doc,0,doc,active,,Sprint S16 - Vida Doméstica (planejado)
+sprints/planejados/legacy/S14_ORCAMENTO_INTELIGENTE.md,doc,0,doc,legacy,,Sprint S14 - Orçamento Inteligente (legado)
+sprints/planejados/legacy/S15_AUTOMACAO_WORKFLOWS.md,doc,0,doc,legacy,,Sprint S15 - Automação de Workflows (legado)
+sprints/planejados/legacy/S16_VIDA_DOMESTICA.md,doc,0,doc,legacy,,Sprint S16 - Vida Doméstica (legado)
+sprints/planejados/S01_SCAFFOLDING_PYPROJECT.md,doc,0,doc,active,,S01 - Scaffolding e pyproject.toml (concluído)
+sprints/planejados/S02_DOMAIN_ENTITIES.md,doc,0,doc,active,,S02 - Domain entities com Pydantic
+sprints/planejados/S03_PORTS_PROTOCOLS.md,doc,0,doc,active,,S03 - Ports e protocols
+sprints/planejados/S04_EVENT_BUS_TIPADO.md,doc,0,doc,active,,S04 - Event bus interno tipado
+sprints/planejados/S05_SQLITE_WAL.md,doc,0,doc,active,,S05 - SQLite adapter com WAL
+sprints/planejados/S06_FINANCIAL_ENGINE.md,doc,0,doc,active,,S06 - FinancialEngine e importadores
+sprints/planejados/S07_IMPULSE_GOAL_TRACKER.md,doc,0,doc,active,,S07 - ImpulseFilter e GoalTracker
+sprints/planejados/S08_CLI_TYPER.md,doc,0,doc,active,,S08 - CLI Typer completo
+sprints/planejados/S09_CONFIG_BOOTSTRAP.md,doc,0,doc,active,,S09 - Config dual-mode e bootstrap
+sprints/planejados/S10_JSON_COMPAT.md,doc,0,doc,active,,S10 - JSON adapter compatível com life_manager
+sprints/planejados/S11_EVENT_BUS_BRIDGE.md,doc,0,doc,active,,S11 - EventBusBridge bidirecional
+sprints/planejados/S12_PLUGIN_LUNA.md,doc,0,doc,active,,S12 - Plugin Luna completo
+sprints/planejados/S13_MIGRACAO_JSON_SQLITE.md,doc,0,doc,active,,S13 - Migração JSON para SQLite faseada
+sprints/planejados/S14_CONTRACT_TESTS.md,doc,0,doc,active,,S14 - Contract tests compartilhados
+sprints/planejados/S15_INTEGRACAO_E2E.md,doc,0,doc,active,,S15 - Integração end-to-end Luna
+sprints/planejados/S16_VIEWMODELS.md,doc,0,doc,active,,S16 - ViewModels UI-agnósticos
+sprints/planejados/S17_WIDGETS_TEXTUAL.md,doc,0,doc,active,,S17 - Widgets Textual para Luna
+sprints/planejados/S18_FLET_UI.md,doc,0,doc,active,,S18 - Interface Flet standalone
+sprints/planejados/S19_MACRO_NUDGE.md,doc,0,doc,active,,S19 - MacroIndicators e NudgeEngine
+sprints/planejados/S20_CI_DOCS_RELEASE.md,doc,0,doc,active,,S20 - CI documentação e release
+sprints_prompts.md,doc,0,doc,active,referência,Prompts para execução das 20 sprints via Claude Code
 scripts/hooks/check_anonymity.py,script,0,infra,active,,Hook pre-commit: bloqueia menções a IA
 scripts/hooks/check_acentuacao.py,script,0,infra,active,,Hook pre-commit: verifica acentuação PT-BR
 scripts/hooks/check_registry.py,script,0,infra,active,,Hook pre-commit: verifica REGISTRY.csv

@@ -56,6 +56,8 @@ EXCLUDED_FILES = {
     ".pre-commit-config.yaml",
     "src/domain/ports/ai_provider.py",
     "src/adapters/ai/__init__.py",
+    "Review.md",
+    "sprints_prompts.md",
 }
 
 EXCLUDED_DIRS = {
