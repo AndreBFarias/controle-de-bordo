@@ -51,3 +51,21 @@ build/
 # Evidencias de IA
 Task_Final/
 IMPORTANT.md
+
+# --- anti-IA (anonimato local) ---
+CLAUDE.md
+AGENTS.md
+GEMINI.md
+COPILOT.md
+HANDOFF-PROMPT.md
+HANDOFF.md
+HOW_TO_RESUME.md
+VALIDATOR_BRIEF.md
+STATE.md
+.cursorrules
+.windsurfrules
+.claude/
+.cursor/
+.aider*
+.continue/
+.github/copilot-instructions.md
